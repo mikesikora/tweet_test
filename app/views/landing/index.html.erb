@@ -1,0 +1,12 @@
+<h1>Landing Page</h1>
+
+<% $client = Grackle::Client.new(:ssl=>true,:auth =>{ %>
+	<%:type => :oauth, %>
+	<%:consumer_key => 'dXOx8fUHn2W5KyI0AkOg', %>
+	<%:consumer_secret => 'vObfI494T6hzTmhJQnpEeKhHPznhkhZIaRPd7oSmp4',%>
+	<%:token => '480963993-kbQ9aGr2EQkwRS4qJZBdivzVAg6AdKdEbrnuNHb6',%>
+	<%:token_secret => 'W7H71n0MI98HVhUQBGs3WUc2v85vhsKefb8cbj3Bh5uXA'%>
+<% }) %>
+
+<%@json = $clientusers.show? :screen_name=> 'theMikeSikora'%>
+<p><%= @json.description</p>

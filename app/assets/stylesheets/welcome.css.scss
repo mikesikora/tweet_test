@@ -1,0 +1,64 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+::-webkit-scrollbar{
+	width:4px;
+   	background-color: rgba(255,255,255,.1);
+ }
+ ::-webkit-scrollbar-thumb{
+   background-color: rgba(0,0,0,.4);
+ }
+.contain{
+	width:100%;
+}
+.contained-2{
+	width:960px;
+	position:relative;
+	margin:0 auto;
+}
+body{
+	background:tomato;
+}
+.section-3{
+	margin:0 1.125%;
+	width:22.5%;
+	float:left;
+	position:relative;
+	border-radius:5px;
+}
+.tweets{
+	height:50vh;
+	max-height:50vh;
+	overflow:auto;
+}
+.tweets p{
+	border-radius:5px;
+	background:#FFF;
+	color:#000;
+	margin:15px 0;
+	padding:10px;
+}
+.tweet-bottom{
+	position:relative;
+	z-index:30;
+	bottom:0;
+	margin-top:-50px;
+	height:50px;
+	width:100%;
+	background-image: -webkit-linear-gradient(top, rgba(255,99,71,0) 10%, rgba(255,99,71,1) 100%);
+}
+.head{
+	background:rgba(0,0,0,.5);
+	margin:2.5% 0;
+	padding:10%;
+}
+h1{
+	color:#FFF;
+	font-family:sans-serif;
+}
+p{
+	font-size:16px;
+	font-family:sans-serif;
+	line-height:1.5em;
+	color:#FFF;
+}
