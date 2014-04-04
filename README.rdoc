@@ -2,4 +2,4 @@
 
 Testing out the Twitter API using the twitter gem. Started with the REST client, now moving to the Streaming client to get live updating from Twitter timelines.
 
-See the welcome index.html.erb layout for the code I'm using (authenticaion occurs there). 
+See the welcome index.html.erb layout for the code I'm using (authentication occurs there). 
