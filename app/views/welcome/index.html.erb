@@ -1,68 +1,13 @@
 <h1>Landing Page</h1>
 
-<% client = Twitter::Steaming::Client.new do |config| %>
-	<% config.consumer_key        = "dXOx8fUHn2W5KyI0AkOg" %>
-	<% config.consumer_secret     = "vObfI494T6hzTmhJQnpEeKhHPznhkhZIaRPd7oSmp4" %>
-	<% config.access_token        = "480963993-kbQ9aGr2EQkwRS4qJZBdivzVAg6AdKdEbrnuNHb6" %>
-	<% config.access_token_secret = "W7H71n0MI98HVhUQBGs3WUc2v85vhsKefb8cbj3Bh5uXA" %>
+<% client = Twitter::Streaming::Client.new do |config| %>
+	<% config.consumer_key        = "key" %>
+	<% config.consumer_secret     = "secret" %>
+	<% config.access_token        = "token" %>
+	<% config.access_token_secret = "token_secret" %>
 <% end %>
 
-<div class="section-3">
-	<% @twitter_user = 'theMikeSikora' %>
-	<% @tweet_news = client.user_timeline(@twitter_user, {count: 20}) %>
-	<div class="head">
-		<p><%= client.user(@twitter_user).name %></p>
-		<p><%= client.user(@twitter_user).description %></p>
-	</div>
-	<div class="tweets">
-	<% @tweet_news.each do |tweet| %>
-		<p><%=raw display_content_with_links(tweet.text) %></p>
-	<% end %>
-	</div>
-	<div class="tweet-bottom"></div>
-</div>
-
-<div class="section-3">
-	<% @twitter_user = 'dirty_nerney' %>
-	<% @tweet_news = client.user_timeline(@twitter_user, {count: 20}) %>
-	<div class="head">
-		<p><%= client.user(@twitter_user).name %></p>
-		<p><%= client.user(@twitter_user).location %></p>
-	</div>
-	<div class="tweets">
-	<% @tweet_news.each do |tweet| %>
-		<p><%=raw display_content_with_links(tweet.text) %></p>
-	<% end %>
-	</div>
-	<div class="tweet-bottom"></div>
-</div>
-
-<div class="section-3">
-	<% @twitter_user = 'bitcmp' %>
-	<% @tweet_news = client.user_timeline(@twitter_user, {count: 20}) %>
-	<div class="head">
-		<p><%= client.user(@twitter_user).name %></p>
-		<p><%= client.user(@twitter_user).location %></p>
-	</div>
-	<div class="tweets">
-	<% @tweet_news.each do |tweet| %>
-		<p><%=raw display_content_with_links(tweet.text) %></p>
-	<% end %>
-	</div>
-	<div class="tweet-bottom"></div>
-</div>
-
-<div class="section-3">
-	<% @twitter_user = 'testudotimes' %>
-	<% @tweet_news = client.user_timeline(@twitter_user, {count: 20}) %>
-	<div class="head">
-		<p><%= client.user(@twitter_user).name %></p>
-		<p><%= client.user(@twitter_user).location %></p>
-	</div>
-	<div class="tweets">
-	<% @tweet_news.each do |tweet| %>
-		<p><%=raw display_content_with_links(tweet.text) %></p>
-	<% end %>
-	</div>
-	<div class="tweet-bottom"></div>
-</div>
+<% topics = ["UMD", "bitcamp"]%>
+<%client.filter(:track => topics.join(",")) do |object|%>
+	<p><%= object.text if object.is_a?(Twitter::Tweet) %></p>
+<% end %>
